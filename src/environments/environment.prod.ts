@@ -1,3 +1,4 @@
 export const environment = {
-  production: true
+  production: true,
+  myToken: 'c9b6775fc7814d7f89394448467feb8a' // šalje se kao query parametar pod nazivom “token”.
 };
