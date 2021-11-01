@@ -7,9 +7,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EntityExtractionComponent implements OnInit {
 
-  constructor() { }
+  text: string;
+  min_confidence: number;
+
+  constructor() {
+    this.text = '';
+    this.min_confidence = 0;
+  }
 
   ngOnInit(): void {
+  }
+
+  search() {
+
   }
 
 }

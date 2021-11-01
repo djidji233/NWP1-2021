@@ -1,1 +1,19 @@
-<p>text-similarity works!</p>
+<div>
+  <h3>Text similarity</h3>
+
+  <div>
+    <form (submit)="compare(text1,text2)" class="mb-5">
+      <div class="form-group mb-2">
+        <label for="text1">Text 1:</label>
+        <input type="text" class="form-control" id="text1" name="text1" placeholder="text 1" [(ngModel)]="text1">
+      </div>
+
+      <div class="form-group mb-2">
+        <label for="text2">Text 1:</label>
+        <input type="text" class="form-control" id="text2" name="text2" placeholder="text 2" [(ngModel)]="text2">
+      </div>
+
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+  </div>
+</div>

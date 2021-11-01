@@ -19,7 +19,7 @@ export class ConfigurationComponent implements OnInit {
 
   setToken() {
     this.configService.setToken(this.token);
-    console.log(this.token);
+    console.log(this.token); // c9b6775fc7814d7f89394448467feb8a
   }
 
 }

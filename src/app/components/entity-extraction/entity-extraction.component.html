@@ -1,1 +1,38 @@
-<p>entity-extraction works!</p>
+<div>
+  <h3>Entity extraction</h3>
+
+  <div>
+    <form (submit)="search()" class="mb-5">
+      <div class="form-group mb-2">
+        <label for="text">Put your text here</label>
+        <input type="text" class="form-control" id="text" name="text" placeholder="text" [(ngModel)]="text">
+      </div>
+
+      <div class="slidecontainer">
+        <label>Min Confidence:</label>
+        <input type="range" min="1" max="100" value="50">
+      </div>
+
+
+      <div>
+        <label>Include:</label>
+
+        <input type="checkbox" id="image" name="image">
+        <label for="image">Image</label>
+
+        <input type="checkbox" id="abstract" name="abstract">
+        <label for="abstract">Abstract</label>
+
+        <input type="checkbox" id="categories" name="categories">
+        <label for="categories">Categories</label>
+
+        <div class="form-group mb-2">
+          <input type="text" class="form-control" id="includeParams" name="includeParams" placeholder="image,abstract,categories">
+        </div>
+      </div>
+
+
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+  </div>
+</div>
