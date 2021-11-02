@@ -22,7 +22,7 @@ export class TextSimilarityService {
   constructor(private httpClient: HttpClient, private configService: ConfigService) {}
 
   compare(text1: string, text2: string): Observable<TextSimilarityRes> {
-    return this.httpClient.get<TextSimilarityRes>(`${this.apiUrl}?text1=${text1}&${text2}&token=${this.configService.getToken()}`)
+    return this.httpClient.get<TextSimilarityRes>(`${this.apiUrl}?text1=${text1}&text2=${text2}&token=${this.configService.getToken()}`)
   }
 
 }

@@ -14,6 +14,12 @@
       </div>
 
       <button type="submit" class="btn btn-primary">Submit</button>
+
+      <div>
+        <br>
+        <h4 *ngIf="isResultVisible">Similarity: {{result}}</h4>
+      </div>
+
     </form>
   </div>
 </div>

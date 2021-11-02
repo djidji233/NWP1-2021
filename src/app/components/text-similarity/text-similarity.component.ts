@@ -14,12 +14,14 @@ export class TextSimilarityComponent implements OnInit {
 
   text1: string;
   text2: string;
-  result: number;
+  result: string;
+  isResultVisible: boolean;
 
   constructor(private textSimilarityService: TextSimilarityService) {
     this.text1 = '';
     this.text2 = '';
-    this.result = 0;
+    this.result = '';
+    this.isResultVisible = false;
   }
 
   ngOnInit(): void {
@@ -27,8 +29,8 @@ export class TextSimilarityComponent implements OnInit {
 
   compare(text1: string, text2: string){
     this.textSimilarityService.compare(text1,text2).subscribe((res) => {
-      this.result = res.similarity;
-      console.log(this.result)
+      this.result = Math.round(res.similarity*100) + '%';
+      this.isResultVisible = true;
     });
   }
 
