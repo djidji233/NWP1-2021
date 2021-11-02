@@ -1,1 +1,27 @@
-<p>language-detection works!</p>
+<div>
+  <h3>Language detection</h3>
+
+  <div>
+    <form (submit)="detect(text,clean)" class="mb-5">
+      <div class="form-group mb-2">
+        <label for="text">Text:</label>
+        <input type="text" class="form-control" id="text" name="text" placeholder="text" [(ngModel)]="text">
+      </div>
+
+      <div class="form-check">
+        <input [(ngModel)]="clean" class="form-check-input" type="checkbox" value="" name="clean" id="clean">
+        <label class="form-check-label" for="clean">
+          Clean text
+        </label>
+      </div>
+
+      <button type="submit" class="btn btn-primary" >Submit</button>
+
+      <div>
+        <br>
+        <h4 *ngIf="isResultVisible">Language: {{result}}</h4>
+      </div>
+
+    </form>
+  </div>
+</div>
