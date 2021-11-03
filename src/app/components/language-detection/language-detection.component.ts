@@ -26,9 +26,11 @@ export class LanguageDetectionComponent implements OnInit {
   detect(text : string, clean : boolean): string[]{
     this.isResultVisible = false;
     this.result = [];
+
     this.languageDetectionService.detect(text,clean).subscribe((res)=>{
       for(let i = 0; i<res.detectedLangs.length; i++){
-        this.result.push(res.detectedLangs[i].lang);
+        let str = res.detectedLangs[i].lang + ' ' + Math.round(res.detectedLangs[i].confidence*100) + '%';
+        this.result.push(str);
       }
       this.isResultVisible = true;
       console.log(res.detectedLangs)

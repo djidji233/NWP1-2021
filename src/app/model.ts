@@ -23,3 +23,15 @@ interface DetectedLanguage {
   lang: string,
   confidence: number
 }
+
+// sentiment analysis
+export interface SentimentAnalysisRes {
+  timestamp: string,
+  time: number,
+  lang: string,
+  sentiment: Sentiment
+}
+interface Sentiment {
+  score : number,
+  type : string
+}

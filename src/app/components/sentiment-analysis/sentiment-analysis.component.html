@@ -1,1 +1,27 @@
-<p>sentiment-analysis works!</p>
+<div>
+  <h3>Sentiment analysis</h3>
+
+  <div>
+    <form (submit)="calculate(text,lang)" class="mb-5">
+
+      <div class="form-group mb-2">
+        <label for="text">Text:</label>
+        <input type="text" class="form-control" id="text" name="text" placeholder="text" [(ngModel)]="text">
+      </div>
+
+      <label for="lang">Choose a language:</label>
+      <select class="cbbox" name="lang" id="lang">
+        <option value="en">English</option>
+        <option value="it">Italian</option>
+        <option value="auto">Autoselect</option>
+      </select>
+
+      <button type="submit" class="btn btn-primary" >Submit</button>
+
+      <h4 *ngIf="isResVisible">Score: {{type}}</h4>
+
+
+
+    </form>
+  </div>
+</div>
