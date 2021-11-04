@@ -11,7 +11,7 @@ export class AppComponent {
 
 
   constructor(private configService : ConfigService) {
-      localStorage.setItem('token', '');
+      //localStorage.setItem('token', '');
       configService.resetHistory();
   }
 

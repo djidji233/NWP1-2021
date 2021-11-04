@@ -5,11 +5,11 @@ import { Injectable } from '@angular/core';
 })
 export class ConfigService {
 
-  private token: string;
+  private token: string | null;
   private history : string[];
 
   constructor() {
-    this.token = '';
+    this.token = localStorage.getItem('token');
     this.history = [];
   }
 
@@ -18,7 +18,7 @@ export class ConfigService {
   }
 
   getToken(): string {
-    return this.token;
+    return <string>this.token;
   }
 
   addHistoryRecord(mess:string){
