@@ -22,6 +22,11 @@ export class TextSimilarityService {
   constructor(private httpClient: HttpClient, private configService: ConfigService) {}
 
   compare(text1: string, text2: string): Observable<TextSimilarityRes> {
+
+    let mess = '[' + new Date().toLocaleDateString('en-DE', { year:"numeric", month:"numeric", day:"numeric", hour:"numeric",minute:"numeric", second:"numeric"}) + ']'  + ' GET '
+      + this.apiUrl + '?text1='+text1+'&text2='+text2+'&token='+this.configService.getToken()
+    this.configService.addHistoryRecord(mess);
+
     return this.httpClient.get<TextSimilarityRes>(`${this.apiUrl}?text1=${text1}&text2=${text2}&token=${this.configService.getToken()}`)
   }
 

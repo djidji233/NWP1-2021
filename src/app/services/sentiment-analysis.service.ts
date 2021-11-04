@@ -16,6 +16,11 @@ export class SentimentAnalysisService {
   constructor(private httpClient: HttpClient, private configService: ConfigService) { }
 
   calculate(text:string,lang:string){
+
+    let mess = '[' + new Date().toLocaleDateString('en-DE', { year:"numeric", month:"numeric", day:"numeric", hour:"numeric",minute:"numeric", second:"numeric"}) + ']'  + ' GET '
+      + this.apiUrl + '?lang='+lang+ '&text='+text+'&token='+this.configService.getToken()
+    this.configService.addHistoryRecord(mess);
+
     return this.httpClient.get<SentimentAnalysisRes>(`${this.apiUrl}?lang=${lang}&text=${text}&token=${this.configService.getToken()}`);
   }
 

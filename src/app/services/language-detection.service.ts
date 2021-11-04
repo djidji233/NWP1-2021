@@ -18,6 +18,11 @@ export class LanguageDetectionService {
   constructor(private httpClient: HttpClient, private configService : ConfigService) {  }
 
   detect(text: string, clean : boolean){
+
+    let mess = '[' + new Date().toLocaleDateString('en-DE', { year:"numeric", month:"numeric", day:"numeric", hour:"numeric",minute:"numeric", second:"numeric"}) + ']'  + ' GET '
+                + this.apiUrl + '?text='+'&token='+this.configService.getToken()+'&clean='+clean;
+    this.configService.addHistoryRecord(mess);
+
     return this.httpClient.get<LanguageDetectionRes>(`${this.apiUrl}?text=${text}&token=${this.configService.getToken()}`,
                                                       {params:{clean}});
   }

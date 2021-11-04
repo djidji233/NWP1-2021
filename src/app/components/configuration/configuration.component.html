@@ -2,7 +2,7 @@
   <h3>Configuration page</h3>
 
   <div>
-    <form (submit)="setToken()" class="mb-5">
+    <form (submit)="setToken(token)" class="mb-5">
       <div class="form-group mb-2">
         <label for="token">Put your token</label>
         <input type="text" class="form-control" id="token" name="token" placeholder="token" [(ngModel)]="token">

@@ -1,8 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import {TextSimilarityRes} from "../../model";
-import {Observable} from "rxjs";
-import {environment} from "../../../environments/environment.prod";
-import {HttpClient} from "@angular/common/http";
 import {TextSimilarityService} from "../../services/text-similarity.service";
 
 @Component({
@@ -16,6 +12,7 @@ export class TextSimilarityComponent implements OnInit {
   text2: string;
   result: string;
   isResultVisible: boolean;
+
 
   constructor(private textSimilarityService: TextSimilarityService) {
     this.text1 = '';

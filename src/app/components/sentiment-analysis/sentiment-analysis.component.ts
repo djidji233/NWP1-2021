@@ -15,6 +15,7 @@ export class SentimentAnalysisComponent implements OnInit {
   isResVisible : boolean;
   color: string;
 
+
   constructor(private sentimentAnalysisService : SentimentAnalysisService) {
     this.text = '';
     this.score = 0;
@@ -22,6 +23,7 @@ export class SentimentAnalysisComponent implements OnInit {
     this.lang = '';
     this.isResVisible = false;
     this.color = '';
+
   }
 
   ngOnInit(): void {

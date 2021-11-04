@@ -13,6 +13,7 @@ export class LanguageDetectionComponent implements OnInit {
   result : string[];
   isResultVisible : boolean;
 
+
   constructor(private languageDetectionService : LanguageDetectionService) {
     this.text = '';
     this.clean = false;

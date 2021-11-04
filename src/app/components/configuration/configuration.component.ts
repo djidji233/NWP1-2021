@@ -17,8 +17,9 @@ export class ConfigurationComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  setToken() {
+  setToken(token:string) {
     this.configService.setToken(this.token);
+    localStorage.setItem('token',this.token);
     console.log(this.token); // c9b6775fc7814d7f89394448467feb8a
   }
 

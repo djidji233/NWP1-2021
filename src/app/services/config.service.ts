@@ -6,9 +6,11 @@ import { Injectable } from '@angular/core';
 export class ConfigService {
 
   private token: string;
+  private history : string[];
 
   constructor() {
     this.token = '';
+    this.history = [];
   }
 
   setToken(tkn: string): void{
@@ -17,6 +19,18 @@ export class ConfigService {
 
   getToken(): string {
     return this.token;
+  }
+
+  addHistoryRecord(mess:string){
+    this.history.push(mess);
+  }
+
+  getHistory() : string[] {
+    return this.history;
+  }
+
+  resetHistory():void{
+    this.history = [];
   }
 
 }
