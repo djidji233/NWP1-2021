@@ -35,3 +35,45 @@ interface Sentiment {
   score : number,
   type : string
 }
+
+// entity extraction
+export interface EntityExtractionRes
+{
+  timestamp: string,
+  "time": number,
+  "lang": string,
+  "langConfidence": number,
+  "text": string,
+  "url": string,
+  "annotations": [
+    {
+      "id": number,
+      "title": string,
+      "uri": string,
+      "label": string,
+      "confidence": number,
+      "spot": string,
+      "start": number,
+      "end": number,
+      "types": [],
+      "categories": [],
+      "abstract": string,
+      "lod": {
+        "wikipedia": string,
+        "dbpedia": string
+      },
+      "alternateLabels": [],
+      "image": {
+        "full": string,
+        "thumbnail": string,
+      }
+    }
+  ],
+  "topEntities": [
+      {
+        "id": string,
+        "uri": string,
+        "score": number
+      }
+  ]
+}
