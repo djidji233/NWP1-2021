@@ -3,6 +3,7 @@ import {HttpClient} from "@angular/common/http";
 import {ConfigService} from "./config.service";
 import {environment} from "../../environments/environment.prod";
 import {LanguageDetectionRes, SentimentAnalysisRes} from "../model";
+import {Observable} from "rxjs";
 
 @Injectable({
   providedIn: 'root'
@@ -15,7 +16,7 @@ export class SentimentAnalysisService {
 
   constructor(private httpClient: HttpClient, private configService: ConfigService) { }
 
-  calculate(text:string,lang:string){
+  calculate(text:string,lang:string) : Observable<SentimentAnalysisRes>{
 
     let mess = '[' + new Date().toLocaleDateString('en-DE', { year:"numeric", month:"numeric", day:"numeric", hour:"numeric",minute:"numeric", second:"numeric"}) + ']'  + ' GET '
       + this.apiUrl + '?lang='+lang+ '&text='+text+'&token='+this.configService.getToken()

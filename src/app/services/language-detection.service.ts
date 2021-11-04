@@ -3,6 +3,7 @@ import {environment} from "../../environments/environment.prod";
 import {HttpClient} from "@angular/common/http";
 import {ConfigService} from "./config.service";
 import {LanguageDetectionRes, TextSimilarityRes} from "../model";
+import {Observable} from "rxjs";
 
 @Injectable({
   providedIn: 'root'
@@ -17,7 +18,7 @@ export class LanguageDetectionService {
 
   constructor(private httpClient: HttpClient, private configService : ConfigService) {  }
 
-  detect(text: string, clean : boolean){
+  detect(text: string, clean : boolean): Observable<LanguageDetectionRes>{
 
     let mess = '[' + new Date().toLocaleDateString('en-DE', { year:"numeric", month:"numeric", day:"numeric", hour:"numeric",minute:"numeric", second:"numeric"}) + ']'  + ' GET '
                 + this.apiUrl + '?text='+'&token='+this.configService.getToken()+'&clean='+clean;

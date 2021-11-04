@@ -3,6 +3,7 @@ import {HttpClient} from "@angular/common/http";
 import {ConfigService} from "./config.service";
 import {environment} from "../../environments/environment.prod";
 import {EntityExtractionRes, LanguageDetectionRes} from "../model";
+import {Observable} from "rxjs";
 
 @Injectable({
   providedIn: 'root'
@@ -19,9 +20,19 @@ export class EntityExtractionService {
 
   constructor(private httpClient:HttpClient, private configService:ConfigService) {}
 
-  search(text: string, min_confidence: number, imageStr: string, abstractStr: string, categoriesStr: string){
+  search(text: string, min_confidence: number, imageStr:string, abstractStr:string, categoriesStr: string) : Observable<EntityExtractionRes>{
+
+
+
     return this.httpClient.get<EntityExtractionRes>(`${this.apiUrl}&text=${text}&token=${this.configService.getToken()}`,
-                                                  {params:{min_confidence:min_confidence, image:imageStr, abstract:abstractStr, categories:categoriesStr}})
+                                          {
+                                                    params:{
+                                                      ['min_confidence']:min_confidence,
+                                                      ['image']:imageStr,
+                                                      ['abstract']:abstractStr,
+                                                      ['categories']:categoriesStr
+                                                    }
+                                                  })
   }
 
 }

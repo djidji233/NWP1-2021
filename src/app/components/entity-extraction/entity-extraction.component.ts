@@ -25,6 +25,13 @@ export class EntityExtractionComponent implements OnInit {
   }
 
   search(text: string, min_confidence: number, includeParams: string) {
+    if(this.include){
+
+    } else {
+      this.entityExtractionService.search(text,min_confidence,'','','').subscribe((res)=>{
+          console.log(res)
+      })
+    }
 
 
     this.min_confidence = 0;
