@@ -2,7 +2,7 @@
   <h3>Entity extraction</h3>
 
   <div>
-    <form (submit)="search(text,min_confidence,imageStr,abstractStr,categoriesStr)" class="mb-5">
+    <form (submit)="search(text,min_confidence,includeParams)" class="mb-5">
       <div class="form-group mb-2">
         <label for="text">Put your text here</label>
         <input type="text" class="form-control" id="text" name="text" placeholder="text" [(ngModel)]="text">
@@ -17,18 +17,10 @@
 
       <div>
         <label>Include:</label>
-
-        <input type="checkbox" id="image" name="image" (change)="imageBool">
-        <label for="image">Image</label>
-
-        <input type="checkbox" id="abstract" name="abstract" (change)="abstractBool">
-        <label for="abstract">Abstract</label>
-
-        <input type="checkbox" id="categories" name="categories" (change)="categoriesBool">
-        <label for="categories">Categories</label>
+        <input type="checkbox" id="include" name="include" (change)="include">
 
         <div class="form-group mb-2">
-          <input type="text" class="form-control" id="includeParams" name="includeParams" placeholder="image,abstract,categories">
+          <input type="text" class="form-control" id="includeParams" name="includeParams" placeholder="image,abstract,categories" [(ngModel)]="includeParams">
         </div>
       </div>
 

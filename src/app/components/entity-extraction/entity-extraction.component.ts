@@ -10,35 +10,23 @@ export class EntityExtractionComponent implements OnInit {
 
   text: string;
   min_confidence: number;
-  imageStr : string;
-  imageBool : boolean;
-  abstractStr : string;
-  abstractBool : boolean;
-  categoriesStr:string;
-  categoriesBool:boolean;
+  include :boolean;
+  includeParams: string;
+
 
   constructor(private entityExtractionService: EntityExtractionService) {
     this.text = '';
     this.min_confidence = 0;
-    this.imageStr = '';
-    this.abstractStr = '';
-    this.categoriesStr = '';
-    this.imageBool = false;
-    this.abstractBool = false;
-    this.categoriesBool = false;
+    this.include = false;
+    this.includeParams = '';
   }
 
   ngOnInit(): void {
   }
 
-  search(text: string, min_confidence: number, imageStr: string, abstractStr: string, categoriesStr: string) {
-    this.imageStr = this.imageBool ? 'image' : '';
-    this.abstractStr = this.abstractBool ? 'abstract' : '';
-    this.categoriesStr = this.categoriesBool ? 'categories' : '';
+  search(text: string, min_confidence: number, includeParams: string) {
 
-    this.entityExtractionService.search(this.text,this.min_confidence,this.imageStr,this.abstractStr,this.categoriesStr);//.subscribe((res)=>
 
-    //);
     this.min_confidence = 0;
   }
 

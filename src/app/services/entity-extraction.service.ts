@@ -19,9 +19,9 @@ export class EntityExtractionService {
 
   constructor(private httpClient:HttpClient, private configService:ConfigService) {}
 
-  search(text:string,min_confidence:number,imageStr:string,abstractStr:string,categoriesStr:string){
+  search(text: string, min_confidence: number, imageStr: string, abstractStr: string, categoriesStr: string){
     return this.httpClient.get<EntityExtractionRes>(`${this.apiUrl}&text=${text}&token=${this.configService.getToken()}`,
-                                                  {params:{min_confidence, imageStr, abstractStr, categoriesStr}})
+                                                  {params:{min_confidence:min_confidence, image:imageStr, abstract:abstractStr, categories:categoriesStr}})
   }
 
 }
